@@ -1,8 +1,0 @@
-SHAREX - SITE
-
-1. Extraia o ZIP.
-2. Abra index.html no navegador ou publique a pasta em um serviço de hospedagem estática.
-3. O favicon.svg já está ligado ao site.
-4. Quando tiver o instalador/link, envie-o para atualizar o botão de download.
-
-O botão de download está intencionalmente desativado até receber o link/arquivo oficial.
